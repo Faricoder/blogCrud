@@ -1,4 +1,4 @@
-const { findAll } = require("../model/saveursModel");
+const { findAll, findOne } = require("../model/saveursModel");
 const browse = async (req, res) => {
 	try {
 		const saveurs = await findAll();
@@ -7,5 +7,19 @@ const browse = async (req, res) => {
 		res.sendStatus(500);
 	}
 };
+const read = async (req, res) => {
+	try {
+		if (isNan(req.params.id)) {
+			throw new Error();
+		}
 
-module.exports = { browse };
+		const recettesId = parseInt(req.params.id, 10);
+		const recettes = await findOne(recettesId);
+		console.log(recettes);
+	} catch (err) {
+		console.error(err);
+		res.sendStatus(500);
+	}
+};
+
+module.exports = { browse, read };

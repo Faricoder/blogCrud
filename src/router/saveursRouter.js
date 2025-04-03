@@ -3,10 +3,11 @@ const db = require("../model/db");
 
 const router = express.Router();
 
-const { browse } = require("../controller/saveursController.js");
+const { browse, read } = require("../controller/saveursController.js");
 //get http://localhost:4242/api/saveurs/
 router.get("/", browse);
-
+//get http://localhost:4242/api/saveurs/:id
+router.get("/:id", read);
 // const recettesRouter = require("./saveursRouter");
 
 module.exports = router;
