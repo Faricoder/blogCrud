@@ -15,6 +15,7 @@ const read = async (req, res) => {
 
 		const recettesId = parseInt(req.params.id, 10);
 		const recettes = await findOne(recettesId);
+		res.status(200).json(recettes);
 		console.log(recettes);
 	} catch (err) {
 		console.error(err);
