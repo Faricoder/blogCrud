@@ -9,11 +9,11 @@ const browse = async (req, res) => {
 };
 const read = async (req, res) => {
 	try {
-		if (isNan(req.params.id)) {
+		if (isNaN(req.params.id)) {
 			throw new Error();
 		}
 
-		const recettesId = parseInt(req.params.id, 10);
+		const recettesId = Number.parseInt(req.params.id, 10);
 		const recettes = await findOne(recettesId);
 		res.status(200).json(recettes);
 		console.log(recettes);

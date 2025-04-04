@@ -6,14 +6,14 @@ const findAll = async () => {
 
 		return saveurs;
 	} catch (error) {
-		console.error(err);
+		console.error(error);
 	}
 };
 const findOne = async (id) => {
 	try {
 		const [recette] = await db.query(
-			"SELECT * FROM recettes Where id_recette = ?",
-			[id_recette],
+			"SELECT * FROM recettes WHERE id_recette = ?",
+			[id]
 		);
 
 		return recette;

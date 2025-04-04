@@ -21,6 +21,7 @@ CREATE TABLE Recettes (
     temps_cuisson INT NOT NULL,
     difficulte ENUM('facile', 'moyen', 'difficile') NOT NULL,
     saison VARCHAR(20) NOT NULL,
+    image_url VARCHAR(255),
     date_publication DATE NOT NULL DEFAULT (CURRENT_DATE)
 );
 
@@ -47,13 +48,13 @@ CREATE TABLE Évaluations (
 );
 
 -- Insérer des recettes
-INSERT INTO Recettes (titre, description, instructions, temps_preparation, temps_cuisson, difficulte, saison) VALUES
-('Salade Niçoise', 'Une salade composée de légumes frais et de thon.', 'Mélanger les légumes et le thon avec une vinaigrette.', 20, 0, 'moyen', 'printemps'),
-('Asperges à la Sauce Hollandaise', 'Asperges fraîches avec une sauce crémeuse.', 'Cuire les asperges et préparer la sauce hollandaise.', 15, 10, 'facile', 'printemps'),
-('Ratatouille', 'Un ragoût de légumes méditerranéens.', 'Faire revenir les légumes et cuire lentement.', 30, 40, 'moyen', 'printemps'),
-('Quiche Lorraine', 'Une tarte salée avec du lard et de la crème.', 'Préparer la pâte, ajouter la garniture et cuire au four.', 25, 35, 'moyen', 'printemps'),
-('Soupe au Pistou', 'Une soupe provençale aux légumes et au basilic.', 'Cuire les légumes et ajouter le pistou avant de servir.', 30, 45, 'facile', 'printemps'),
-('Tarte aux Fraises', 'Une tarte sucrée avec des fraises fraîches.', 'Préparer la pâte, ajouter la crème et les fraises.', 20, 25, 'facile', 'printemps');
+INSERT INTO Recettes (titre, description, instructions, temps_preparation, temps_cuisson, difficulte, saison, image_url) VALUES
+('Salade Niçoise', 'Une salade composée de légumes frais et de thon.', 'Mélanger les légumes et le thon avec une vinaigrette.', 20, 0, 'moyen', 'printemps', 'salade-nicoise.jpg'),
+('Asperges à la Sauce Hollandaise', 'Asperges fraîches avec une sauce crémeuse.', 'Cuire les asperges et préparer la sauce hollandaise.', 15, 10, 'facile', 'printemps', 'asperges-sauce-hollandaise.jpg'),
+('Ratatouille', 'Un ragoût de légumes méditerranéens.', 'Faire revenir les légumes et cuire lentement.', 30, 40, 'moyen', 'printemps', 'ratatouille.jpg'),
+('Quiche Lorraine', 'Une tarte salée avec du lard et de la crème.', 'Préparer la pâte, ajouter la garniture et cuire au four.', 25, 35, 'moyen', 'printemps', 'quiche-lorraine.jpg'),
+('Soupe au Pistou', 'Une soupe provençale aux légumes et au basilic.', 'Cuire les légumes et ajouter le pistou avant de servir.', 30, 45, 'facile', 'printemps', 'soupe-pistou.jpg'),
+('Tarte aux Fraises', 'Une tarte sucrée avec des fraises fraîches.', 'Préparer la pâte, ajouter la crème et les fraises.', 20, 25, 'facile', 'printemps', 'tarte-fraises.jpg');
 
 -- Insérer des utilisateurs
 INSERT INTO Utilisateurs (nom_utilisateur, email, mot_de_passe, bio) VALUES
